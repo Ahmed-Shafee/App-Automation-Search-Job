@@ -13,6 +13,11 @@ import javax.swing.JFrame;
 
 public class StoreUserDataLocal {
 	
+private static String fileCVPathLoaction;
+private static String fileUserDataLocation;
+	
+	
+	
 	
 public static void storeDataLocal() {
 	
@@ -50,6 +55,7 @@ private static void cerateFolder()
 
      // Store the encrypted data in a file
      String filePath = "C:/appdata/encrypted_data.txt";
+     setFileUserDataLocation(filePath);
      try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
          writer.write(encryptedEmail);
          writer.newLine();
@@ -103,12 +109,36 @@ private static void cerateFolder()
 	 // Write the contents of the file to the "c:/appdata" directory with the original file extension
 	 try {
 	   FileWriter writer = new FileWriter("c:/appdata/CV" + fileExtension);
-	   writer.write(fileData);
-	   writer.close();
+	   
+	   setFileCVPathLoaction("c:/appdata/CV" + fileExtension);
+	   
+		  writer.write(fileData); 
+		  writer.close();
+		 
 	 } catch (IOException e) {
 	   e.printStackTrace();
 	 }
 
 
   }
+
+
+public static String getFileCVPathLoaction() {
+	return fileCVPathLoaction;
+}
+
+
+public static void setFileCVPathLoaction(String fileCVPathLoaction) {
+	StoreUserDataLocal.fileCVPathLoaction = fileCVPathLoaction;
+}
+
+
+public static String getFileUserDataLocation() {
+	return fileUserDataLocation;
+}
+
+
+public static void setFileUserDataLocation(String fileUserDataLocation) {
+	StoreUserDataLocal.fileUserDataLocation = fileUserDataLocation;
+}
 }
