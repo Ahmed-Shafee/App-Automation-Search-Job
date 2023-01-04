@@ -1,0 +1,12 @@
+import openai
+import os
+
+# Set up the API client
+openai.api_key = "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"
+
+# Define the text you want to process
+# Define the text you want to process
+prompt="write a small  message for my love  "
+
+response= openai.Completion.create(engine="text-davinci-002", prompt=prompt, max_tokens=6)
+print(response)
