@@ -34,7 +34,5 @@ public static boolean connection() throws IOException
 }
 	
 	
-	
-	
 
 }
