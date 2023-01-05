@@ -9,29 +9,29 @@ import java.net.URL;
 
 public class ConnectServer {
 	
-public static boolean connection() throws IOException
+public static boolean connection()
 {
 	
-	URL url = new URL("http://your-server-url.com");
-	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-	conn.setRequestMethod("GET");
+	// this request to the server that should  hello world 
+	
+	try {
+	      URL url = new URL("http://localhost:8080/");
+	      HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	      conn.setRequestMethod("GET");
 
-	int responseCode = conn.getResponseCode();
-	if (responseCode == HttpURLConnection.HTTP_OK) {
-	  // The request was successful
-	  BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-	  String line;
-	  while ((line = reader.readLine()) != null) {
-	    System.out.println(line);
-	  }
-	  reader.close();
-	} else {
-	  // The request failed
-	  System.out.println("Response code: " + responseCode);
-	}
-
-  return true;
-}
+	      BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	      String line;
+	      while ((line = reader.readLine()) != null) {
+	        System.out.println(line);
+	      }
+	      reader.close();
+	    } catch (Exception e) {
+	      e.printStackTrace();
+	      return false;
+	    }
+ 
+	return true;
+ }
 	
 	
 
