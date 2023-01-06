@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import javax.swing.JFrame;
 
+import service.side.connect.ConnectServer;
 import store.user.data.StoreUserDataLocal;
 
 public class MainProgramTests {
@@ -23,7 +24,7 @@ public class MainProgramTests {
 		 * 
 		 * 
 		 */
-		  
+		  ConnectServer.connection(); 
     
 		  
 	  }
