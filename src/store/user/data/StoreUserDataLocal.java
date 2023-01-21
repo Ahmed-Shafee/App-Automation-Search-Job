@@ -3,9 +3,13 @@ import java.awt.FileDialog;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Base64;
 import java.util.Scanner;
 
@@ -15,40 +19,32 @@ public class StoreUserDataLocal {
 	
 private static String fileCVPathLoaction;
 private static String fileUserDataLocation;
-	
-	
-	
-	
+		
 public static void storeDataLocal() {
 	
 	cerateFolder();
 	storeData();
 }	
-	
-
 private static void cerateFolder()
 {
-	
-	 // Create a File object for the new folder
-    File newFolder = new File("c:/appdata");
-    
+	// Create a File object for the new folder
+	File newFolder = new File("c:/appdata");
     // Create the new folder
-    boolean success = newFolder.mkdir();
-    
+    boolean success = newFolder.mkdir();    
     if (success) {
       // The folder was created successfully
       System.out.println("Folder created successfully");
     } else {
       // The folder was not created
-      System.out.println("Error creating folder");
+      System.out.println("Floder exist");
     }
-
+       
 }
 
- public static void storeEncrptyData(String email,String password) {
-	 
+// Here we save the data in encrypted way 
 
-   
+ public static void storeEncrptyData(String email,String password) {
+	
      // Encrypt the data using base64
      String encryptedEmail = Base64.getEncoder().encodeToString(email.getBytes());
      String encryptedPassword = Base64.getEncoder().encodeToString(password.getBytes());
@@ -64,13 +60,10 @@ private static void cerateFolder()
      } catch (IOException e) {
          e.printStackTrace();
      }
-		 
-	
+		 	
 }
-
-
-
-  private static void storeData() {
+    // Here we save the CV file of the user.
+        private static void storeData() {
 	    // Create a JFrame for the file dialog
 	    JFrame frame = new JFrame();
 	    
@@ -80,45 +73,11 @@ private static void cerateFolder()
 	    
 	    // Get the selected file path
 	    String filePath = fileDialog.getDirectory() + fileDialog.getFile();
-	    
 	     
 	    // Create a File object for the selected file
-	    File file = new File(filePath);
-	    // Read the contents of the file into a string
-
-	    String fileName = file.getName();
-	    String fileExtension = fileName.substring(fileName.lastIndexOf("."));
-	    
-	       
-	 
-	 // Read the contents of the file into a string
-	 StringBuilder sb = new StringBuilder();
-	 try {
-	   BufferedReader br = new BufferedReader(new FileReader(filePath));
-	   String line;
-	   while ((line = br.readLine()) != null) {
-	     sb.append(line);
-	     sb.append(System.lineSeparator());
-	   }
-	   br.close();
-	 } catch (IOException e) {
-	   e.printStackTrace();
-	 }
-	 String fileData = sb.toString();
+	    copyFile(filePath,"C:\\appdata\\CV.docx");
 
 	 // Write the contents of the file to the "c:/appdata" directory with the original file extension
-	 try {
-	   FileWriter writer = new FileWriter("c:/appdata/CV" + fileExtension);
-	   
-	   setFileCVPathLoaction("c:/appdata/CV" + fileExtension);
-	   
-		  writer.write(fileData); 
-		  writer.close();
-		 
-	 } catch (IOException e) {
-	   e.printStackTrace();
-	 }
-
 
   }
 
@@ -141,4 +100,29 @@ public static String getFileUserDataLocation() {
 public static void setFileUserDataLocation(String fileUserDataLocation) {
 	StoreUserDataLocal.fileUserDataLocation = fileUserDataLocation;
 }
+
+private static void copyFile(String source,String desc) {
+	
+	  File sourceFile = new File(source);
+      File destinationFile = new File(desc);
+      try {
+          InputStream in = new FileInputStream(sourceFile);
+          OutputStream out = new FileOutputStream(destinationFile);
+          byte[] buffer = new byte[1024];
+          int length;
+          while ((length = in.read(buffer)) > 0) {
+              out.write(buffer, 0, length);
+          }
+          in.close();
+          out.close();
+          System.out.println("File copied from " + sourceFile + " to " + destinationFile);
+      } catch (IOException e) {
+          System.out.println("Error copying file: " + e.getMessage());
+      }
+	
+}
+
+
+
+
 }

@@ -53,7 +53,6 @@ private static void showScreen() {
 	attachButton.addActionListener(new ActionListener() {
 	  public void actionPerformed(ActionEvent e) {
 	  
-		  
 		   StoreUserDataLocal.storeDataLocal();
 	  }
 	});
@@ -139,8 +138,10 @@ private static void showScreen() {
 		StoreUserDataLocal.storeEncrptyData(emailLinkedinString, passwordLinkedin);
 		
 		
+		
 		frame.setVisible(false);
 		AutomationJobSearchGUI.main(null);
+		
 					
 			
 		}
