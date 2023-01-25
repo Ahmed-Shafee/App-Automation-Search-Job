@@ -27,7 +27,6 @@ public class GetDetailsGUI {
 	
 public static void main(String[] args)	
 {
-	
 
 showScreen();
 }
@@ -134,16 +133,11 @@ private static void showScreen() {
 		String emailLinkedinString=linkedInEmailField.getText();
 		char[] passwordCharLinkedin = emailPassword.getPassword();
 		String passwordLinkedin = new String(passwordCharLinkedin);
-		
-		StoreUserDataLocal.storeEncrptyData(emailLinkedinString, passwordLinkedin);
-		
-		
-		
+	
+		StoreUserDataLocal.storeEncrptyData(emailLinkedinString, passwordLinkedin);		
 		frame.setVisible(false);
 		AutomationJobSearchGUI.main(null);
-		
-					
-			
+	
 		}
 	});
 	submitButton.setBounds(292,351,146,58);
