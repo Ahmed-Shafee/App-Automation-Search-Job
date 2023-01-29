@@ -21,10 +21,8 @@ public class ThreeSearchOpation implements SearchJob{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	} 
-	  
-	  
-  }
-
+	   
+ }
 @Override
 public void search() {
 	// TODO Auto-generated method stub	 
@@ -35,11 +33,8 @@ public void search() {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		     
-
-	
-}
+		}	
+   }
 	
 
 }

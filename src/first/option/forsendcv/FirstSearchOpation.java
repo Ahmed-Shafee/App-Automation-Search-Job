@@ -14,25 +14,18 @@ public class FirstSearchOpation implements SearchJob{
 	 * 
 	 * }
 	 */
-
 	@Override
 	public void search() {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 		 // read data indexes 
 		  int[] result = null;
 		try {
-			result = ReadSvedDataExeclSheet.readFromIndexesFile();
-		
-		  
+			result = ReadSvedDataExeclSheet.readFromIndexesFile();	  
 		  /// read data with indexes 
 		String[] companiesEmail = null;
-      
-		 companiesEmail= ReadFromExcel.readDataFromExcelSheet(result);
-			
+		 companiesEmail= ReadFromExcel.readDataFromExcelSheet(result);		
        /// send data that got 
 	  	SendMail.sendMails(companiesEmail);
-
 		Synchronized.synchronize(companiesEmail);
 		}
 		 catch (IOException e) {
