@@ -1,31 +1,27 @@
 package store.user.data;
 import java.awt.FileDialog;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Base64;
-import java.util.Scanner;
-
 import javax.swing.JFrame;
 
+import first.option.forsendcv.SendMail;
+
 public class StoreUserDataLocal {
-	
 private static String fileCVPathLoaction;
 private static String fileUserDataLocation;
 		
 public static void storeDataLocal() {
-	
-	cerateFolder();
+	createFolder();
 	storeData();
 }	
-private static void cerateFolder()
+private static void createFolder()
 {
 	// Create a File object for the new folder
 	File newFolder = new File("c:/appdata");
@@ -75,8 +71,8 @@ private static void cerateFolder()
 	    String filePath = fileDialog.getDirectory() + fileDialog.getFile();
 	     
 	    // Create a File object for the selected file
-	    copyFile(filePath,"C:\\appdata\\CV.docx");
-
+	    copyFile(filePath,"C:/appdata/CV.docx");
+        SendMail.setUrl(filePath);
 	 // Write the contents of the file to the "c:/appdata" directory with the original file extension
 
   }

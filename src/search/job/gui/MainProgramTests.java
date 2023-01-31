@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import javax.swing.JFrame;
 
+import first.option.forsendcv.SendMail;
 import service.side.connect.ConnectServer;
 import store.user.data.StoreUserDataLocal;
 
@@ -24,8 +25,7 @@ public class MainProgramTests {
 		 * 
 		 * 
 		 */
-		  ConnectServer.connection(); 
-    
+		//  SendMail.sendMail("ahmed_92a@hotmail.com");    
 		  
 	  }
 	  

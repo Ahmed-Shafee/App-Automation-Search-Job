@@ -10,7 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class ReadFromExcel{
 
 private static final String fileLoaction="C:\\AutomationSearchJoB\\SearchOption1\\Emails-List.xlsx";
-private static final int numberOfcompanes=3; // this the number of the companies we want to send for them the cv 
+private static final int numberOfcompanes=1; // this the number of the companies we want to send for them the cv 
 	
 		
 public static String[] readDataFromExcelSheet(int[] indexes)throws Exception 

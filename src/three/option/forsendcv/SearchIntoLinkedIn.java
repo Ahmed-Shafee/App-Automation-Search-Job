@@ -8,7 +8,7 @@ import search.job.gui.GetDetailsGUI;
 
 public class SearchIntoLinkedIn {
 	private static String linkedInEmailString;
-	private static char [] linkedInPasswordString;
+	private static String linkedInPasswordString;
 
 	
 	//Step1: Read data from excel sheet 
@@ -32,16 +32,13 @@ private static void applyJobIntoLinkedIn(String companyName) throws Exception
 		  ".//Drivers//chromedriver.exe"); 
 		  WebDriver driver = new ChromeDriver();
 		  driver.manage().window().maximize();
-
 		  String url ="https:\\www.linkedin.com"; 
 		  driver.get(url);
 
 		//Delay execution for 5 seconds to view the maximize operation
 		 Thread.sleep(5000);
-		 setLinkedInPasswordString();
-		 setLinkedInEmailString();
-		  driver.findElement(By.id("session_key")).sendKeys(getLinkedInEmailString());
-		  driver.findElement(By.id("session_password")).sendKeys(getLinkedInPasswordString().toString());
+		  driver.findElement(By.id("session_key")).sendKeys(linkedInEmailString);
+		  driver.findElement(By.id("session_password")).sendKeys(linkedInPasswordString);
 		  driver.findElement(By.className("sign-in-form__submit-button")).click();
 		  driver.findElement(By.className("search-global-typeahead__input")).
 		  sendKeys(companyName); 
@@ -63,17 +60,17 @@ private static void applyJobIntoLinkedIn(String companyName) throws Exception
 	    //////////////	   
 	     driver.close();	    
   }
-public static char[] getLinkedInPasswordString() {
+public static String getLinkedInPasswordString() {
 	return linkedInPasswordString;
 }
-private static void setLinkedInPasswordString() {
-	linkedInPasswordString=GetDetailsGUI.getPasswordUser().getPassword();
+public static void setLinkedInPasswordString(String password) {
+	linkedInPasswordString=password;
 }
 public static String getLinkedInEmailString() {
 	return linkedInEmailString;
 }
-private static void setLinkedInEmailString() {
-	linkedInEmailString=GetDetailsGUI.getEmailUser().getText();
+ public static void setLinkedInEmailString(String email) {
+	linkedInEmailString=email;
 }
 
 	

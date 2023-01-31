@@ -1,6 +1,7 @@
 package first.option.forsendcv;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -13,20 +14,18 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import search.job.gui.GetDetailsGUI;
 
 public class SendMail {	
     // Sender's email ID needs to be mentioned
-   private static String email ;	
+   private static String from;	
    private static String emailPassword;
+   private static String url;
    public static void sendMails(String[] companiesEmail) {
 	   for(String email:companiesEmail)
 	   sendMail(email);
 	   System.out.println("emails sent successfully");
    }
-      private static void sendMail(String companyEmail) {
-   	   setFrom();
-   	   setEmailPassword();
+      private static void sendMail(String companyEmail) {    
     	// Recipient's email ID needs to be mentioned.
         String to = companyEmail;
         // Assuming you are sending email from through mail SMTP
@@ -41,27 +40,27 @@ public class SendMail {
         // Get the Session object.// and pass username and password
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
                 protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(email,emailPassword);
+                return new PasswordAuthentication(from,"jjlunazaxxzqncld");
 
             }
         });
 
       // Used to debug SMTP issues
-      // Session.setDebug(true);
+        session.setDebug(true);
         try {
             // Create a default MimeMessage object.
             MimeMessage message = new MimeMessage(session);
             // Set From: header field of the header.
-            message.setFrom(new InternetAddress(email));
+            message.setFrom(new InternetAddress(from));
             // Set To: header field of the header.
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
             // Set Subject: header field
             message.setSubject("This is the Subject Line!");
             Multipart multipart = new MimeMultipart();
             MimeBodyPart attachmentPart = new MimeBodyPart();
             MimeBodyPart textPart = new MimeBodyPart();
             try {
-                File f =new File("");
+                File f =new File(url);
                 attachmentPart.attachFile(f);
                 textPart.setText("This is text");
                 multipart.addBodyPart(textPart);
@@ -80,16 +79,23 @@ public class SendMail {
 
     }
    public static String getFrom() {
-    		return email;
+    		return from;
     	}
-   private static void setFrom() {
-    		SendMail.email = GetDetailsGUI.getEmailUser().getText();
-    	}  
+   public static void setFrom(String from) {
+    		SendMail.from = from;
+    	}          
 	public static String getEmailPassword() {
 		return emailPassword;
 	}
-     private static void setEmailPassword() {
-		SendMail.emailPassword =GetDetailsGUI.getEmailPassword().toString();
+	public static void setEmailPassword(String emailPassword) {
+		SendMail.emailPassword = emailPassword;
 	}
+	public static String getUrl() {
+		return url;
+	}
+	public static void setUrl(String url) {
+		SendMail.url = url;
+	}
+ 
 
 }

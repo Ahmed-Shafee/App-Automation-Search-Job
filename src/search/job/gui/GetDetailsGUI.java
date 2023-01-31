@@ -7,7 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import first.option.forsendcv.SendMail;
 import store.user.data.StoreUserDataLocal;
+import three.option.forsendcv.SearchIntoLinkedIn;
 
 import javax.swing.JPasswordField;
 
@@ -78,15 +80,22 @@ showScreen();
 	submitButton.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {		
 	//// store sensitive data about email and the password 			
-		String emailString=	LinkedInEmail.getText();
-		char[] passwordChars = LinkedInPassword.getPassword();
+		String emailString=EmailUser.getText();	
+		char[] passwordChars = PasswordUser.getPassword();
 		String password = new String(passwordChars);
 		StoreUserDataLocal.storeEncrptyData(emailString, password);
+		SendMail.setFrom(emailString);
+		SendMail.setEmailPassword(password);
 		//// store sensitive data about linkedIn 
-		String emailLinkedinString=EmailUser.getText();
+		String emailLinkedinString=LinkedInEmail.getText();
 		char[] passwordCharLinkedin = LinkedInPassword.getPassword();
 		String passwordLinkedin = new String(passwordCharLinkedin);
-		StoreUserDataLocal.storeEncrptyData(emailLinkedinString, passwordLinkedin);		
+		StoreUserDataLocal.storeEncrptyData(emailLinkedinString, passwordLinkedin);
+		SearchIntoLinkedIn.setLinkedInEmailString(emailLinkedinString);
+		SearchIntoLinkedIn.setLinkedInPasswordString(passwordLinkedin);
+		
+		
+		// Update the data inside the send email class 
 		frame.setVisible(false);
 		AutomationJobSearchGUI.main(null);
 		}
@@ -95,20 +104,16 @@ showScreen();
 	frame.getContentPane().add(submitButton);	
 	frame.setVisible(true);		
  }
-
 public static JTextField getEmailInput() {
 	return LinkedInEmail;
 }
-
 @SuppressWarnings("unused")
 private static void setEmailInput(JTextField emailInput) {
 	GetDetailsGUI.LinkedInEmail = emailInput;
 }
-
 public static JPasswordField getEmailPassword() {
 	return LinkedInPassword;
 }
-
 @SuppressWarnings("unused")
 private static void setEmailPassword(JPasswordField emailPassword) {
 	GetDetailsGUI.LinkedInPassword = emailPassword;
