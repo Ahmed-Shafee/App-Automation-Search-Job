@@ -7,6 +7,7 @@ import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import ConncetServerAnalyseFile.SendRequestToServer4;
@@ -111,14 +112,15 @@ showScreen();
 	AnalysePesonalData=new JButton("Analysing Data");
 	AnalysePesonalData.addActionListener(new ActionListener() {
 	   public void actionPerformed(ActionEvent e) {		
-		 
+		   String analyseFileForPostions=null;
 		    try {
-				SendRequestToServer4.analyseDataFile();
+				 analyseFileForPostions=SendRequestToServer4.analyseDataFile();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-				
+            JOptionPane.showMessageDialog(frame, analyseFileForPostions);
+
 				}
 			});
 	AnalysePesonalData.setBounds(234,348,146,58);	

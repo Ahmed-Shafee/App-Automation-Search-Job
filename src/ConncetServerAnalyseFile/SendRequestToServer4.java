@@ -16,8 +16,9 @@ import store.user.data.StoreUserDataLocal;
 
 public class SendRequestToServer4 {
 	private static String text;
-    public static void analyseDataFile() throws IOException {
+    public static String analyseDataFile() throws IOException {
         URL url = new URL("http://localhost:5000/hello/");
+        String fileAnalyse=null;
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("POST");
         con.setRequestProperty("Content-Type", "application/json");
@@ -43,10 +44,11 @@ public class SendRequestToServer4 {
                 response.append(inputLine);
             }
             in.close();
-            System.out.println(response.toString());
+            fileAnalyse= response.toString();
         } else {
             System.out.println("Failed to get response from server, response code: " + responseCode);
         }
+        return fileAnalyse;
     }
 	public static String getText() {
 		return text;
