@@ -69,7 +69,7 @@ private static void createFolder()
 	    
 	    // Get the selected file path
 	    String filePath = fileDialog.getDirectory() + fileDialog.getFile();
-	     
+	    setFileCVPathLoaction(filePath);
 	    // Create a File object for the selected file
 	    copyFile(filePath,"C:/appdata/CV.docx");
         SendMail.setUrl(filePath);
@@ -83,7 +83,7 @@ public static String getFileCVPathLoaction() {
 }
 
 
-public static void setFileCVPathLoaction(String fileCVPathLoaction) {
+private static void setFileCVPathLoaction(String fileCVPathLoaction) {
 	StoreUserDataLocal.fileCVPathLoaction = fileCVPathLoaction;
 }
 
@@ -93,7 +93,7 @@ public static String getFileUserDataLocation() {
 }
 
 
-public static void setFileUserDataLocation(String fileUserDataLocation) {
+private static void setFileUserDataLocation(String fileUserDataLocation) {
 	StoreUserDataLocal.fileUserDataLocation = fileUserDataLocation;
 }
 

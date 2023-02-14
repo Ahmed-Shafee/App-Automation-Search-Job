@@ -2,10 +2,14 @@ package search.job.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import ConncetServerAnalyseFile.SendRequestToServer4;
 import first.option.forsendcv.SendMail;
 import store.user.data.StoreUserDataLocal;
 import three.option.forsendcv.SearchIntoLinkedIn;
@@ -16,7 +20,9 @@ public class GetDetailsGUI {
 	private static JPasswordField LinkedInPassword;
 	private static JTextField EmailUser;
 	private static JPasswordField PasswordUser;
-	private static JButton submitButton;
+	private static JButton startSearchingButton;
+	private static JButton AnalysePesonalData;
+
 	
 public static void main(String[] args)	
 {
@@ -74,8 +80,8 @@ showScreen();
 	//linkedInPasswordField.setText("Enter your LinkedIn  password");
 	frame.getContentPane().add(PasswordUser);
 	//// submit button 
-	submitButton=new JButton("SUBMIT");
-	submitButton.addActionListener(new ActionListener() {
+	startSearchingButton=new JButton("Start Searching");
+	startSearchingButton.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {		
 	//// store sensitive data about email and the password 			
 		String emailString=EmailUser.getText();	
@@ -98,9 +104,27 @@ showScreen();
 		AutomationJobSearchGUI.main(null);
 		}
 	});
-	submitButton.setBounds(292,351,146,58);	
-	frame.getContentPane().add(submitButton);	
-	frame.setVisible(true);		
+	startSearchingButton.setBounds(437,348,146,58);	
+	frame.getContentPane().add(startSearchingButton);	
+	frame.setVisible(true);	
+	
+	AnalysePesonalData=new JButton("Analysing Data");
+	AnalysePesonalData.addActionListener(new ActionListener() {
+	   public void actionPerformed(ActionEvent e) {		
+		 
+		    try {
+				SendRequestToServer4.analyseDataFile();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+				
+				}
+			});
+	AnalysePesonalData.setBounds(234,348,146,58);	
+	frame.getContentPane().add(AnalysePesonalData);	
+	frame.setVisible(true);
+	
  }
 public static JTextField getEmailInput() {
 	return LinkedInEmail;
