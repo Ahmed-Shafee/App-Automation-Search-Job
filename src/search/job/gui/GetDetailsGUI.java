@@ -6,11 +6,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
 import first.option.forsendcv.SendMail;
 import store.user.data.StoreUserDataLocal;
 import three.option.forsendcv.SearchIntoLinkedIn;
-
 import javax.swing.JPasswordField;
 
 public class GetDetailsGUI {
