@@ -11,6 +11,7 @@ import java.io.OutputStream;
 import java.util.Base64;
 import javax.swing.JFrame;
 
+import ConncetServerAnalyseFile.SendRequestToServer6;
 import first.option.forsendcv.SendMail;
 
 public class StoreUserDataLocal {
@@ -70,6 +71,7 @@ private static void createFolder()
 	    // Get the selected file path
 	    String filePath = fileDialog.getDirectory() + fileDialog.getFile();
 	    setFileCVPathLoaction(filePath);
+	    SendRequestToServer6.setFileLocation(filePath);
 	    // Create a File object for the selected file
 	    copyFile(filePath,"C:/appdata/CV.docx");
         SendMail.setUrl(filePath);

@@ -14,11 +14,12 @@ import org.json.JSONObject;
 
 import store.user.data.StoreUserDataLocal;
 
-public class SendRequestToServer4 {
-	private static String text="test";
-	public static void  main(String[] args) throws IOException {
+public class SendRequestToServer5 {
+	private static String text="";
+	public static void  main(String[] args) throws IOException  
+	{
 		
-		  String textResult=analyseDataFile(text);
+		  String textResult=analyseDataFile(text); 
 		  System.out.println(textResult);
 		 
 	}
@@ -63,8 +64,8 @@ public class SendRequestToServer4 {
 	public static String getText() {
 		return text;
 	}
-	private static void setText(String text) {
-		SendRequestToServer4.text = text;
+	private static void setText(String newText) {
+	 text = newText;
 	}
 	 public static String convetFileToText(String fileLocation) {
 	        // Create a File object for the input file
@@ -91,5 +92,6 @@ public class SendRequestToServer4 {
 	        return fileContents;           
 	    }
 
+	
 	
 }

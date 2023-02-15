@@ -7,6 +7,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class SendRequestToServer3 {
+	
+	
     public static void main(String[] args) throws IOException {
         URL url = new URL("http://localhost:5000/hi/");
         HttpURLConnection con = (HttpURLConnection) url.openConnection();

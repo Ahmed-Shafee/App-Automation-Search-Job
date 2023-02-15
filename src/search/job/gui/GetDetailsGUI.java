@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import ConncetServerAnalyseFile.SendRequestToServer4;
+import ConncetServerAnalyseFile.SendRequestToServer6;
 import first.option.forsendcv.SendMail;
 import store.user.data.StoreUserDataLocal;
 import three.option.forsendcv.SearchIntoLinkedIn;
@@ -20,10 +21,10 @@ public class GetDetailsGUI {
 	private static JTextField LinkedInEmail;
 	private static JPasswordField LinkedInPassword;
 	private static JTextField EmailUser;
-	private static JPasswordField PasswordUser;
+	private static JPasswordField PasswordUser; 			
 	private static JButton startSearchingButton;
 	private static JButton AnalysePesonalData;
-
+	private static JButton attachButton;
 	
 public static void main(String[] args)	
 {
@@ -39,7 +40,7 @@ showScreen();
 	JLabel uploadCV = new JLabel("Upload Your CV");
 	uploadCV.setBounds(49, 284, 146, 37);
 	frame.getContentPane().add(uploadCV);
-	JButton attachButton = new JButton("Attach file");
+    attachButton = new JButton("Attach file");
 	attachButton.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent e) {  
     StoreUserDataLocal.storeDataLocal();
@@ -112,9 +113,9 @@ showScreen();
 	AnalysePesonalData=new JButton("Analysing Data");
 	AnalysePesonalData.addActionListener(new ActionListener() {
 	   public void actionPerformed(ActionEvent e) {		
-		   String analyseFileForPostions=null;
+		   String analyseFileForPostions="";
 		    try {
-				 analyseFileForPostions=SendRequestToServer4.analyseDataFile();
+				 analyseFileForPostions=SendRequestToServer6.analyseData();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
