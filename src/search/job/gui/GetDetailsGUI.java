@@ -83,7 +83,7 @@ showScreen();
 	frame.getContentPane().add(PasswordUser);
 	//// submit button 
 	startSearchingButton=new JButton("Start Searching");
-	startSearchingButton.addActionListener(new ActionListener() {
+	startSearchingButton.addActionListener(new ActionListener(){
     public void actionPerformed(ActionEvent e) {		
 	//// store sensitive data about email and the password 			
 		String emailString=EmailUser.getText();	
@@ -99,8 +99,6 @@ showScreen();
 		StoreUserDataLocal.storeEncrptyData(emailLinkedinString, passwordLinkedin);
 		SearchIntoLinkedIn.setLinkedInEmailString(emailLinkedinString);
 		SearchIntoLinkedIn.setLinkedInPasswordString(passwordLinkedin);
-		
-		
 		// Update the data inside the send email class 
 		frame.setVisible(false);
 		AutomationJobSearchGUI.main(null);
@@ -120,9 +118,16 @@ showScreen();
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-            JOptionPane.showMessageDialog(frame, analyseFileForPostions);
-
-				}
+			Object[] options = {"Yes, Save",
+                    "No, Analyse again"};
+    int n = JOptionPane.showOptionDialog(frame,analyseFileForPostions,
+    "A Silly Question",
+    JOptionPane.YES_NO_CANCEL_OPTION,
+    JOptionPane.QUESTION_MESSAGE,
+    null,
+    options,
+    options[1]);
+    }
 			});
 	AnalysePesonalData.setBounds(234,348,146,58);	
 	frame.getContentPane().add(AnalysePesonalData);	

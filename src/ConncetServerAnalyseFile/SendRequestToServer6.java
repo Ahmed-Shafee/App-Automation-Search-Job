@@ -20,11 +20,18 @@ import store.user.data.StoreUserDataLocal;
 
 public class SendRequestToServer6 {
 	private static String fileTotext="";
-	private static String fileLocation="";
+	private static String fileLocation="C:\\Users\\shafe\\OneDrive\\Desktop\\Resume Many Versions\\Software Developer Ahmed.Sh.cv.docx";
+	
+	public static void main(String[] args) throws IOException
+	{
 		
+    String text=analyseData();		
+		System.out.println(text);
+	}
+	
 	public static String analyseData() throws IOException {
 		   // This place should content the data from the user (which is the file that the user insert to the program )
-	        fileLocation=StoreUserDataLocal.getFileCVPathLoaction();
+	       // fileLocation=StoreUserDataLocal.getFileCVPathLoaction();
 		    fileTotext=convetFileToText(fileLocation);       
 	        setFileTotext(fileTotext);
 	        fileTotext=analyseDataFile(fileTotext);
