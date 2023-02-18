@@ -20,16 +20,9 @@ import store.user.data.StoreUserDataLocal;
 
 public class SendRequestToServer6 {
 	private static String fileTotext="";
-	private static String fileLocation="C:\\Users\\shafe\\OneDrive\\Desktop\\Resume Many Versions\\Software Developer Ahmed.Sh.cv.docx";
+	private static String fileLocation="";
 	
-	public static void main(String[] args) throws IOException
-	{
-		
-    String text=analyseData();		
-		System.out.println(text);
-	}
-	
-	public static String analyseData() throws IOException {
+public static String analyseData() throws IOException {
 		   // This place should content the data from the user (which is the file that the user insert to the program )
 	       // fileLocation=StoreUserDataLocal.getFileCVPathLoaction();
 		    fileTotext=convetFileToText(fileLocation);       
@@ -38,13 +31,12 @@ public class SendRequestToServer6 {
 	        return fileTotext;
 	}
 	private static String analyseDataFile(String textFile) throws IOException {
-    	fileTotext= SendRequestToServer5.convetFileToText(fileLocation);
         URL url = new URL("http://localhost:5000/hello/");
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("POST");
         con.setRequestProperty("Content-Type", "application/json");
         con.setDoOutput(true);
-        JSONObject payload = new JSONObject().put("message",fileTotext);
+        JSONObject payload = new JSONObject().put("message",textFile);
         DataOutputStream out = new DataOutputStream(con.getOutputStream());
         out.writeBytes(payload.toString());
         out.flush();
