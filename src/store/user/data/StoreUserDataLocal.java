@@ -57,9 +57,38 @@ private static void createFolder()
      } catch (IOException e) {
          e.printStackTrace();
      }
-		 	
+		 
 }
-    // Here we save the CV file of the user.
+    
+ public static void storeAnalyseData(String analyseData) {
+		
+ 
+	 // Store the encrypted data in a file
+     String filePath = "C:/appdata/Personalpostions.txt";
+     setFileUserDataLocation(filePath);
+     try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+         writer.write(analyseData);
+         writer.newLine();
+     } catch (IOException e) {
+         e.printStackTrace();
+     }
+	  
+		 
+}
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+  // Here we save the CV file of the user.
         private static void storeData() {
 	    // Create a JFrame for the file dialog
 	    JFrame frame = new JFrame();

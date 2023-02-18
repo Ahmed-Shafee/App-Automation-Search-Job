@@ -1,5 +1,5 @@
 package search.job.gui;
-
+import store.user.data.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -131,10 +131,7 @@ showScreen();
     if (result == JOptionPane.OK_OPTION) {
         //...
         // here we need to save the data of the analyse AI machine inside the local machine of the user   
-    	
-    	
-    	
-    	
+    	StoreUserDataLocal.storeAnalyseData(analyseFileForPostions);
     	
     }
     
