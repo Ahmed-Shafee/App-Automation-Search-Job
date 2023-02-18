@@ -120,15 +120,26 @@ showScreen();
 			}
 			Object[] options = {"Yes, Save",
                     "No, Analyse again"};
-    int n = JOptionPane.showOptionDialog(frame,analyseFileForPostions,
+    int result = JOptionPane.showOptionDialog(frame,analyseFileForPostions,
     "A Silly Question",
     JOptionPane.YES_NO_CANCEL_OPTION,
     JOptionPane.QUESTION_MESSAGE,
     null,
     options,
     options[1]);
+
+    if (result == JOptionPane.OK_OPTION) {
+        //...
+        // here we need to save the data of the analyse AI machine inside the local machine of the user   
+    	
+    	
+    	
+    	
+    	
     }
-			});
+    
+}
+	  });
 	AnalysePesonalData.setBounds(234,348,146,58);	
 	frame.getContentPane().add(AnalysePesonalData);	
 	frame.setVisible(true);
