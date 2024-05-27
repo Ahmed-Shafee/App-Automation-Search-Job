@@ -13,10 +13,8 @@ public class ReadSvedDataExeclSheet {
 private static final String fileLocation="C:\\AutomationSearchJoB\\SearchOption1\\Email_List_Indexes.xlsx";	
 public static int[] readFromIndexesFile() throws IOException
 {
-
-	 return readData();	
+	 return readData();
 	 
-	
 }
 	
 

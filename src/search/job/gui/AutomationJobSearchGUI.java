@@ -76,7 +76,8 @@ public class AutomationJobSearchGUI {
 	}
 	
 
-	private static void showMessage() {
+	private static void showMessage() 
+	{
 		// TODO Auto-generated method stub
 		
 		JOptionPane.showMessageDialog(null,"Congratulations!Now we are contuine the process \n,Be ready for interviwes ");

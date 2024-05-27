@@ -12,7 +12,7 @@ public static void main(String[] args)
 }
 	    public static void showScreen() {
 		// TODO Auto-generated method stub		
-		JFrame frame = new JFrame();
+		final JFrame frame = new JFrame();
 		frame.setBounds(150, 150, 727, 467);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Manual Job Search");

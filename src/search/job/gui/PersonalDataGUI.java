@@ -18,14 +18,9 @@ public class PersonalDataGUI {
  		frame.setBounds(150, 150, 727, 467);
  		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  		frame.setTitle("Personal Data, Abut your postions");
- 		frame.getContentPane().setLayout(null);
-	    
- 		
- 	
+ 		frame.getContentPane().setLayout(null);	
  		frame.setVisible(true);
 
     }
-
-	
-	
+		
 }

@@ -21,7 +21,7 @@ public class FirstSearchOpation implements SearchJob{
 		try {
 			result = ReadSvedDataExeclSheet.readFromIndexesFile();	  
 		  /// read data with indexes 
-		 companiesEmail= ReadFromExcel.readDataFromExcelSheet(result);		
+		 companiesEmail = ReadFromExcel.readDataFromExcelSheet(result);		
        /// send data that got 
 	  	SendMail.sendMails(companiesEmail);
 		//Synchronized.synchronize(companiesEmail);

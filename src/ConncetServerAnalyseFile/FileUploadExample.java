@@ -2,7 +2,6 @@ package ConncetServerAnalyseFile;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Scanner;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -15,10 +14,12 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
-public class FileUploadExample {
-    public static void main(String[] args) throws IOException {
+public class FileUploadExample 
+{
+    public static void main(String[] args) throws IOException 
+    {
         CloseableHttpClient httpClient = HttpClients.createDefault();
-        try {
+        try{
         	HttpPost uploadFile = new HttpPost("http://localhost:5000/hello/");
             MultipartEntityBuilder builder = MultipartEntityBuilder.create();
             builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
@@ -45,10 +46,12 @@ public class FileUploadExample {
                     }
                 }
             };
-            String responseBody = httpClient.execute(uploadFile, responseHandler);
+            String responseBody = (String) httpClient.execute(uploadFile, responseHandler);
             System.out.println("----------------------------------------");
             System.out.println(responseBody);
-        } finally {
+        } 
+        finally 
+        {
             httpClient.close();
         }
     }
@@ -57,6 +60,7 @@ public class FileUploadExample {
         byte[] buffer = new byte[(int) file.length()];
         FileInputStream f = new FileInputStream(file);
         f.read(buffer);
+        f.close();
         return new String(buffer);
     }
 }
