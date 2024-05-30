@@ -1,6 +1,7 @@
 package search.job.gui;
 
 // The libraries
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -18,6 +19,7 @@ import javax.swing.JPasswordField;
 public class GetDetailsGUI 
 {
 	// Data Fields 
+	
 	private static JTextField LinkedInEmail = null;
 	private static JPasswordField LinkedInPassword = null;
 	private static JTextField EmailUser = null;
@@ -70,9 +72,9 @@ public class GetDetailsGUI
 		
 		//Fields Email and Email_password
 		
-		JLabel insetEmail = new JLabel("Insert your LinkedIn_Email and LinkedIn_Password");
-		insetEmail.setBounds(49,210,199,37);
-		frame.getContentPane().add(insetEmail);	
+		JLabel insertEmail = new JLabel("Insert your LinkedIn_Email and LinkedIn_Password");
+		insertEmail.setBounds(49,210,199,37);
+		frame.getContentPane().add(insertEmail);	
 		LinkedInEmail = new JTextField();
 		LinkedInEmail.setBounds(365, 101, 160, 30);
 		
@@ -108,7 +110,7 @@ public class GetDetailsGUI
 			
 		    public void actionPerformed(ActionEvent e) 
 		    {		
-		    	//// store sensitive data about email and the password 			
+		    	// store sensitive data about email and the password 			
 		    	String emailString = null;
 		    	String password = null;
 		    	char[] passwordChars = null;

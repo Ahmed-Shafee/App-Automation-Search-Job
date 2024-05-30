@@ -39,7 +39,9 @@ public class SendRequestToServer6
 	
 	private static String analyseDataFile(String textFile) throws IOException 
 	{
-		assert(textFile == null);
+		assert(textFile != null);
+		
+		// How to add the hello file inside the tomcat server 
 		
 		URL url = new URL("http://localhost:5000/hello/");
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
