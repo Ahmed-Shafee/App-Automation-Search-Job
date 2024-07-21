@@ -1,7 +1,6 @@
 package first.option.forsendcv;
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -15,17 +14,20 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 
-public class SendMail {	
+public class SendMail 
+{	
     // Sender's email ID needs to be mentioned
    private static String from;	
    private static String emailPassword;
    private static String url;
-   public static void sendMails(String[] companiesEmail) {
+   public static void sendMails(String[] companiesEmail) 
+   {
 	   for(String email:companiesEmail)
 	   sendMail(email);
 	   System.out.println("emails sent successfully");
    }
-      private static void sendMail(String companyEmail) {    
+      private static void sendMail(String companyEmail) 
+      {    
     	// Recipient's email ID needs to be mentioned.
         String to = companyEmail;
         // Assuming you are sending email from through mail SMTP

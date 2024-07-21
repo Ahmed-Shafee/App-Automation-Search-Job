@@ -15,7 +15,8 @@ public class AutomatedJobSearchSecoundScreenGUI {
 	}
 	
 	
-	private static void showMessage() {
+	private static void showMessage() 
+	{
 		// TODO Auto-generated method stub
 		
 		JOptionPane.showMessageDialog(null,"Congratulations!Now we are contuine the process \n,Be ready for interviwes ");
@@ -23,7 +24,8 @@ public class AutomatedJobSearchSecoundScreenGUI {
 	}
 
 
-	public static void showScreen() {
+	public static void showScreen() 
+	{
 		// TODO Auto-generated method stub
 		JFrame frame = new JFrame();
 		frame.setBounds(150, 150, 727, 467);

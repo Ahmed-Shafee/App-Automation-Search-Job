@@ -33,6 +33,7 @@ public class CreatSearchOpt {
 		  }
 		 
 	  /// need to complete the code later 
+	  input.close();  
 	  return searchJob;  
   }
 
